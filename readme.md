@@ -123,58 +123,98 @@ To import the Open API spec files for the `multiple-apis-multiple-versions` samp
 
 For cars-api v1:
 ```
-.\Import-ApiVersioned-Api.ps1 `
+@apimName = "<your-apim-name>"  
+# The apiId variable corresponds with a part of the versionset-name in the bicep file
+@apiId = "cars_api"  
+# The apiPath variable defines the path where the API is found in APIM
+@apiPath = "cars"
+# The apiSwaggerPrefix variable defines the part that must be removed from the endpoint-paths in the OpenAPI spec
+@apiSwaggerPrefix = "/api/v1"
+# The apiServiceBackendUrl variable defines the address where the implementation of the API can be found
+@apiServiceBackendUrl = "https://<yourwebappname>.azurewebsites.net
+
+.\Import-ApimVersioned-Api.ps1 `
   -Apim_ResourceGroup apiversionset-test `
-  -Apim_Name <your-apim-name> `
-  -Api_Id cars_api ` # note that this corresponds with a part of the versionset-name in the bicep file
-  -Api_Path cars `
+  -Apim_Name @apimName `
+  -Api_Id @apiId `
+  -Api_Path @apiPath `
   -Api_DisplayName "cars api" `
   -Api_Version v1 `
   -OpenApi_File c:/temp/api_cars_v1-openapi.json `
-  -Api_SwaggerPrefix /api/v1 ` # This is the part that must be removed from the endpoint-paths in the OpenAPI spec
-  -Service_BackendUrl https://<yourwebappname>.azurewebsites.net
+  -Api_SwaggerPrefix @apiSwaggerPrefix `
+  -Service_BackendUrl @apiServiceBackendUrl
 ```
 
 For cars-api v2:
 ```
-.\Import-ApiVersioned-Api.ps1 `
+@apimName = "<your-apim-name>"  
+# The apiId variable corresponds with a part of the versionset-name in the bicep file
+@apiId = "cars_api"  
+# The apiPath variable defines the path where the API is found in APIM
+@apiPath = "cars"
+# The apiSwaggerPrefix variable defines the part that must be removed from the endpoint-paths in the OpenAPI spec
+@apiSwaggerPrefix = "/api/v2"
+# The apiServiceBackendUrl variable defines the address where the implementation of the API can be found
+@apiServiceBackendUrl = "https://<yourwebappname>.azurewebsites.net
+
+.\Import-ApimVersioned-Api.ps1 `
   -Apim_ResourceGroup apiversionset-test `
-  -Apim_Name <your-apim-name> `
-  -Api_Id cars_api ` # note that this corresponds with a part of the versionset-name in the bicep file
-  -Api_Path cars `
+  -Apim_Name @apimName `
+  -Api_Id @apiId `
+  -Api_Path @apiPath `
   -Api_DisplayName "cars api" `
   -Api_Version v2 `
   -OpenApi_File c:/temp/api_cars_v2-openapi.json `
-  -Api_SwaggerPrefix /api/v2 ` # This is the part that must be removed from the endpoint-paths in the OpenAPI spec
-  -Service_BackendUrl https://<yourwebappname>.azurewebsites.net
+  -Api_SwaggerPrefix @apiSwaggerPrefix `
+  -Service_BackendUrl @apiServiceBackendUrl
 ```
 
 For vessels-api v1:
 ```
-.\Import-ApiVersioned-Api.ps1 `
+@apimName = "<your-apim-name>"  
+# The apiId variable corresponds with a part of the versionset-name in the bicep file
+@apiId = "vessels_api"  
+# The apiPath variable defines the path where the API is found in APIM
+@apiPath = "vessels"
+# The apiSwaggerPrefix variable defines the part that must be removed from the endpoint-paths in the OpenAPI spec
+@apiSwaggerPrefix = "/api/v1"
+# The apiServiceBackendUrl variable defines the address where the implementation of the API can be found
+@apiServiceBackendUrl = "https://<yourwebappname>.azurewebsites.net
+
+.\Import-ApimVersioned-Api.ps1 `
   -Apim_ResourceGroup apiversionset-test `
-  -Apim_Name <your-apim-name> `
-  -Api_Id vessels_api ` # note that this corresponds with a part of the versionset-name in the bicep file
-  -Api_Path vessels `
+  -Apim_Name @apimName `
+  -Api_Id @apiId `
+  -Api_Path @apiPath `
   -Api_DisplayName "vessels api" `
   -Api_Version v1 `
   -OpenApi_File c:/temp/api_vessels_v1-openapi.json `
-  -Api_SwaggerPrefix /api/v1 ` # This is the part that must be removed from the endpoint-paths in the OpenAPI spec
-  -Service_BackendUrl https://<yourwebappname>.azurewebsites.net
+  -Api_SwaggerPrefix @apiSwaggerPrefix `
+  -Service_BackendUrl @apiServiceBackendUrl
 ```
 
 For vessels-api v2:
 ```
-.\Import-ApiVersioned-Api.ps1 `
+@apimName = "<your-apim-name>"  
+# The apiId variable corresponds with a part of the versionset-name in the bicep file
+@apiId = "vessels_api"  
+# The apiPath variable defines the path where the API is found in APIM
+@apiPath = "vessels"
+# The apiSwaggerPrefix variable defines the part that must be removed from the endpoint-paths in the OpenAPI spec
+@apiSwaggerPrefix = "/api/v2"
+# The apiServiceBackendUrl variable defines the address where the implementation of the API can be found
+@apiServiceBackendUrl = "https://<yourwebappname>.azurewebsites.net
+
+.\Import-ApimVersioned-Api.ps1 `
   -Apim_ResourceGroup apiversionset-test `
-  -Apim_Name <your-apim-name> `
-  -Api_Id vessels_api ` # note that this corresponds with a part of the versionset-name in the bicep file
-  -Api_Path vessels `
+  -Apim_Name @apimName `
+  -Api_Id @apiId `
+  -Api_Path @apiPath `
   -Api_DisplayName "vessels api" `
   -Api_Version v2 `
   -OpenApi_File c:/temp/api_vessels_v2-openapi.json `
-  -Api_SwaggerPrefix /api/v2 ` # This is the part that must be removed from the endpoint-paths in the OpenAPI spec
-  -Service_BackendUrl https://<yourwebappname>.azurewebsites.net
+  -Api_SwaggerPrefix @apiSwaggerPrefix `
+  -Service_BackendUrl @apiServiceBackendUrl
 ```
 
 ### single-api-multiple-versions
@@ -183,28 +223,48 @@ To import the Open API spec files for the `single-api-multiple-versions` sample,
 
 For v1:
 ```
-.\Import-ApiVersioned-Api.ps1 `
+@apimName = "<your-apim-name>"  
+# The apiId variable corresponds with a part of the versionset-name in the bicep file
+@apiId = "transport_api"  
+# The apiPath variable defines the path where the API is found in APIM
+@apiPath = "transport"
+# The apiSwaggerPrefix variable defines the part that must be removed from the endpoint-paths in the OpenAPI spec
+@apiSwaggerPrefix = "/api/v1"
+# The apiServiceBackendUrl variable defines the address where the implementation of the API can be found
+@apiServiceBackendUrl = "https://<yourwebappname>.azurewebsites.net
+
+.\Import-ApimVersioned-Api.ps1 `
   -Apim_ResourceGroup apiversionset-test `
-  -Apim_Name <your-apim-name> `
-  -Api_Id transport_api ` # note that this corresponds with a part of the versionset-name in the bicep file
-  -Api_Path transport `
+  -Apim_Name @apimName `
+  -Api_Id @apiId `
+  -Api_Path @apiPath `
   -Api_DisplayName "transport api" `
   -Api_Version v1 `
   -OpenApi_File c:/temp/api_transport_v1-openapi.json `
-  -Api_SwaggerPrefix /api/v1 ` # This is the part that must be removed from the endpoint-paths in the OpenAPI spec
-  -Service_BackendUrl https://<yourwebappname>.azurewebsites.net
+  -Api_SwaggerPrefix @apiSwaggerPrefix `
+  -Service_BackendUrl @apiServiceBackendUrl
 ```
 
 For v2:
 ```
-.\Import-ApiVersioned-Api.ps1 `
+@apimName = "<your-apim-name>"  
+# The apiId variable corresponds with a part of the versionset-name in the bicep file
+@apiId = "transport_api"  
+# The apiPath variable defines the path where the API is found in APIM
+@apiPath = "transport"
+# The apiSwaggerPrefix variable defines the part that must be removed from the endpoint-paths in the OpenAPI spec
+@apiSwaggerPrefix = "/api/v2"
+# The apiServiceBackendUrl variable defines the address where the implementation of the API can be found
+@apiServiceBackendUrl = "https://<yourwebappname>.azurewebsites.net
+
+.\Import-ApimVersioned-Api.ps1 `
   -Apim_ResourceGroup apiversionset-test `
-  -Apim_Name fg-apim `
-  -Api_Id transport_api ` # note that this corresponds with a part of the versionset-name in the bicep file
-  -Api_Path transport `
+  -Apim_Name @apimName `
+  -Api_Id @apiId `
+  -Api_Path @apiPath `
   -Api_DisplayName "transport api" `
   -Api_Version v2 `
   -OpenApi_File c:/temp/api_transport_v2-openapi.json `
-  -Api_SwaggerPrefix /api/v2` # This is the part that must be removed from the endpoint-paths in the OpenAPI spec
-  -Service_BackendUrl https://fg-apiversionset-test.azurewebsites.net
+  -Api_SwaggerPrefix @apiSwaggerPrefix `
+  -Service_BackendUrl @apiServiceBackendUrl
   ```
