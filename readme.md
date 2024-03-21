@@ -12,7 +12,7 @@ There are 2 ASP.NET API's present in this repository:
 
   This folder contains a slightly more complicated ASP.NET sample.  This single ASP.NET API project contains multiple API definitions and each of them is versioned.  In other words, instead of just generating one Open API spec file per version, an Open API spec file is generated for each 'API group' and for each version.
 
-For detailed information about the source code, please see the readme.md file that is present in each folder.
+> For detailed information about the source code, please see the readme.md file that is present in each folder.
 
 # Getting started
 
@@ -23,7 +23,7 @@ In a real life scenario, all these steps should be automated via deployment pipe
 
 Create an Azure Web App.  There are multiple ways to do that; you can do it straightforward via the Azure Portal, by deploying a bicep file that describes your app or via the following Azure CLI commands:
 
-```
+```azcli
 az group create --name apiversionset-test --location "West Europe"
 az appservice plan create --name fg-appsvc-test --resource-group apiversionset-test --location "West Europe" --sku B1
 az webapp create --name fg-apiversionset-test --resource-group apiversionset-test --plan fg-appsvc-test --runtime dotnet:6
@@ -49,7 +49,7 @@ See the `apim_versionset.bicep` file that can be found in the `deploy` folder.
 
 Deploy the bicep template using this command:
 
-```
+```azcli
  az deployment group create --name versionset_deploy --resource-group <resourcegroup> --template-file .\apim_versionset.bicep --parameters apim_name=<apim_name> 
 ```
 
@@ -122,7 +122,7 @@ However, if that version information is also present in the paths mentionned in 
 To import the Open API spec files for the `multiple-apis-multiple-versions` sample, execute these commands from the `scripts` folder:
 
 For cars-api v1:
-```
+```powershell
 @apimName = "<your-apim-name>"  
 # The apiId variable corresponds with a part of the versionset-name in the bicep file
 @apiId = "cars_api"  
@@ -146,7 +146,7 @@ For cars-api v1:
 ```
 
 For cars-api v2:
-```
+```powershell
 @apimName = "<your-apim-name>"  
 # The apiId variable corresponds with a part of the versionset-name in the bicep file
 @apiId = "cars_api"  
@@ -170,7 +170,7 @@ For cars-api v2:
 ```
 
 For vessels-api v1:
-```
+```powershell
 @apimName = "<your-apim-name>"  
 # The apiId variable corresponds with a part of the versionset-name in the bicep file
 @apiId = "vessels_api"  
@@ -194,7 +194,7 @@ For vessels-api v1:
 ```
 
 For vessels-api v2:
-```
+```powershell
 @apimName = "<your-apim-name>"  
 # The apiId variable corresponds with a part of the versionset-name in the bicep file
 @apiId = "vessels_api"  
@@ -222,7 +222,7 @@ For vessels-api v2:
 To import the Open API spec files for the `single-api-multiple-versions` sample, execute these commands from the `scripts` folder:
 
 For v1:
-```
+```powershell
 @apimName = "<your-apim-name>"  
 # The apiId variable corresponds with a part of the versionset-name in the bicep file
 @apiId = "transport_api"  
@@ -246,7 +246,7 @@ For v1:
 ```
 
 For v2:
-```
+```powershell
 @apimName = "<your-apim-name>"  
 # The apiId variable corresponds with a part of the versionset-name in the bicep file
 @apiId = "transport_api"  
